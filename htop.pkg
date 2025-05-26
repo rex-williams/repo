@@ -1,0 +1,13 @@
+name="htop"
+desc="Interactive process manager"
+version="3.4.1"
+sources="https://github.com/htop-dev/htop/releases/download/${version}/htop-${version}.tar.xz https://aur.archlinux.org/cgit/aur.git/plain/vim-keybindings.patch?h=htop-vim"
+build (){
+    tar xvf "htop-${version}.tar.xz" -C "$BUILD"
+    cp -f vim-keybindings.patch?h=htop-vim "$BUILD"
+    cd "$BUILD/htop-${version}"
+    patch -p1 < '../vim-keybindings.patch'
+    ./configure
+    make
+    make install
+}

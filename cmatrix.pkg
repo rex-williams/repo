@@ -1,0 +1,11 @@
+name="cmatrix"
+desc="Simulates the display from The Matrix"
+version="v2.0-Butterscotch"
+sources="https://github.com/abishekvashok/cmatrix/releases/download/$(echo $version | cut -d- -f1)/cmatrix-${version}.tar"
+build (){
+    tar xvf "cmatrix-${version}.tar"
+    cd "cmatrix"
+    ./configure
+    make
+    make install
+}

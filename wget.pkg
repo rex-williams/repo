@@ -1,0 +1,13 @@
+name="wget"
+desc="GNU wget download utility"
+version="1.25.0"
+sources="https://ftp.gnu.org/gnu/wget/wget-${version}.tar.gz"
+build (){
+    tar xvf "wget-${version}.tar.gz"
+    cd "wget-${version}"
+    ./configure --prefix=/usr \
+                --sysconfdir=/etc \
+                --with-ssl=openssl &&
+    make
+    make install
+}

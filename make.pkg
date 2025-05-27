@@ -1,0 +1,15 @@
+name='make'
+desc='GNU Make build tool'
+version='4.4.1'
+sources="https://ftp.gnu.org/gnu/make/make-${version}.tar.gz"
+build() {
+export CFLAGS="$CFLAGS -std=c17"
+export LDFLAGS="$LDFLAGS -static"
+
+./configure \
+    --prefix=/usr \
+    --disable-nls
+
+make
+make DESTDIR="$INSTALL" install
+}

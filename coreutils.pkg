@@ -1,0 +1,12 @@
+name='coreutils'
+version='9.5'
+sources="https://ftp.gnu.org/gnu/coreutils/coreutils-${version}.tar.xz"
+build() {
+export CFLAGS="$CFLAGS -static"
+
+./configure \
+    --prefix=/usr
+
+make
+make DESTDIR="$INSTALL" install
+}

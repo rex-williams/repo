@@ -1,0 +1,14 @@
+name='mpfr'
+desc='Library for multiple-precision floating-point computations'
+version='4.2.2'
+sources="https://www.mpfr.org/mpfr-${version}/mpfr-${version}.tar.xz"
+depends='gmp'
+build() {
+./configure \
+    --prefix=/usr \
+    --enable-shared \
+    --enable-thread-safe
+
+make
+make DESTDIR="$INSTALL" install
+}

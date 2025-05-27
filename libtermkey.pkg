@@ -1,0 +1,10 @@
+name='libtermkey'
+version='0.22'
+sources="https://github.com/unofficial-mirror/libtermkey/archive/refs/tags/v${version}.tar.gz https://codeberg.org/kiss-community/community/raw/branch/main/community/libtermkey/patches/static-no-libtool.patch"
+depends='ncurses'
+build() {
+patch -p1 < static-no-libtool.patch
+
+make libtermkey.a
+make PREFIX=/usr DESTDIR="$INSTALL" install
+}

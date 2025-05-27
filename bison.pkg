@@ -1,0 +1,22 @@
+name='bison'
+desc='GNU yacc(1) replacement'
+version='3.8.2'
+depends='m4'
+sources="https://ftp.gnu.org/gnu/bison/bison-${version}.tar.xz"
+build() {
+./configure \
+    --prefix=/usr \
+    --disable-nls \
+    --without-libtextstyle-prefix
+
+make
+make DESTDIR="$INSTALL" \
+    install-libLIBRARIES \
+    install-binPROGRAMS \
+    install-nodist_binSCRIPTS \
+    install-dist_m4sugarDATA \
+    install-dist_skeletonsDATA \
+    install-dist_pkgdataDATA \
+    install-aclocalDATA \
+    install-man1
+}

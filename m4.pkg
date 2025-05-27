@@ -1,0 +1,13 @@
+name='m4'
+desc='GNU version of UNIX m4 macro language processor'
+version='1.4.20'
+sources="https://ftp.gnu.org/gnu/m4/m4-${version}.tar.xz"
+build() {
+export LDFLAGS="$LDFLAGS -static"
+
+./configure \
+    --prefix=/usr
+
+make
+make DESTDIR="$INSTALL" install
+}

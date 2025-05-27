@@ -1,0 +1,12 @@
+name='lpeg'
+version='1.1.0'
+sources="http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-${version}.tar.gz https://codeberg.org/kiss-community/community/raw/branch/main/community/lpeg/patches/build-static-lib.patch"
+depends='lua make'
+build() {
+patch -p1 < build-static-lib.patch
+
+make
+
+mkdir -p "$INSTALL/usr/lib/"
+install -Dm644 lpeg.a "$INSTALL/usr/lib/liblpeg.a"
+}

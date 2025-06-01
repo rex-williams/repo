@@ -1,7 +1,7 @@
 name='libpsl'
 version='0.21.5'
-sources="https://github.com/rockdaboot/libpsl/releases/download/${version}/libpsl-${version}.tar.gz"
 depends='icu python make'
+sources="https://github.com/rockdaboot/libpsl/releases/download/$version/libpsl-$version.tar.gz"
 build() {
 ./configure \
     --prefix=/usr

@@ -23,7 +23,7 @@ maj_min_patch=$2
 
 mkdir -p "$INSTALL/usr/lib/pkgconfig"
 
-cat >> lua.pc < EOF
+cat > lua.pc <<EOF
 V=%VER%
 R=%REL%
 

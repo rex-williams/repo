@@ -1,6 +1,6 @@
 name='dash'
 desc='POSIX compliant shell that aims to be as small as possible'
-version='0.5.12-1'
+version='0.5.12'
 depends='libedit'
 sources="http://gondor.apana.org.au/~herbert/dash/files/dash-$version.tar.gz"
 build() {

@@ -1,5 +1,5 @@
 name='mpfr'
-desc='Library for multiple-precision floating-point computations'
+desc='Multiple-precision floating-point library'
 version='4.2.2'
 sources="https://www.mpfr.org/mpfr-${version}/mpfr-${version}.tar.xz"
 depends='gmp'

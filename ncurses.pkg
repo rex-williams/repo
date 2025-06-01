@@ -1,4 +1,5 @@
 name='ncurses'
+desc='System V Release 4.0 curses emulation library'
 version='6.5'
 sources="https://invisible-mirror.net/archives/ncurses/ncurses-${version}.tar.gz"
 build() {

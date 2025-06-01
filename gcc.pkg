@@ -1,5 +1,5 @@
 name='gcc'
-desc='GNU Compiler Collection'
+desc='The GNU Compiler Collection - C and C++ frontends'
 version='15.1.0'
 depends='binutils make bison flex gmp libmpc mpfr zlib'
 sources="https://gcc.gnu.org/pub/gcc/releases/gcc-${version}/gcc-${version}.tar.xz"

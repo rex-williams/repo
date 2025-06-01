@@ -1,4 +1,5 @@
 name='coreutils'
+desc='The GNU Coreutils'
 version='9.5'
 sources="https://ftp.gnu.org/gnu/coreutils/coreutils-${version}.tar.xz"
 build() {

@@ -1,4 +1,5 @@
 name='lua'
+desc='Powerful lightweight programming language designed for extending applications'
 version='5.4.7'
 sources="https://www.lua.org/ftp/lua-${version}.tar.gz"
 build() {

@@ -1,5 +1,5 @@
 name='make'
-desc='GNU Make build tool'
+desc='GNU make utility to maintain groups of programs'
 version='4.4.1'
 sources="https://ftp.gnu.org/gnu/make/make-${version}.tar.gz"
 build() {

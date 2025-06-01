@@ -1,5 +1,5 @@
 name='flex'
-desc='The Fast Lexical Analyzer'
+desc='A tool for generating text-scanning programs'
 version='2.6.4'
 sources="https://github.com/westes/flex/releases/download/v${version}/flex-${version}.tar.gz"
 depends='m4 make'

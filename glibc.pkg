@@ -1,0 +1,63 @@
+name='glibc'
+desc='GNU C Library'
+version='2.40'
+depends=''
+sources="https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz"
+build() {
+# Build cannot happen without optimizations.
+export CFLAGS="${CFLAGS:--Os}"
+
+# Build must happen outside of glibc source.
+mkdir -p build
+cd build
+
+../configure \
+    --prefix=/usr \
+    --libdir=/usr/lib \
+    --libexecdir=/usr/lib \
+    --enable-bind-now \
+    --enable-stack-protector=strong \
+    --disable-nscd \
+    --disable-profile \
+    --disable-werror \
+    libc_cv_include_x86_isa_level=no \
+    libc_cv_have_x86_lahf_sahf=no \
+    libc_cv_have_x86_movbe=no
+
+printf "%s\n" \
+    "slibdir=/usr/lib" \
+    "rtlddir=/usr/lib" \
+    "sbindir=/usr/bin" \
+    "rootsbindir=/usr/bin" > defconfigparms
+
+cp defconfigparms configparms
+echo "build-programs=no" >> configparms
+
+# Build libs without fortify
+CFLAGS="$CFLAGS -U_FORTIFY_SOURCE" \
+CPPFLAGS="$CPPFLAGS -U_FORTIFY_SOURCE" \
+    make -O
+
+cp defconfigparms configparms
+echo "build-programs=yes" >> configparms
+
+make -O
+make DESTDIR="$INSTALL" install
+
+rm -f "$INSTALL/var/db/Makefile" "$INSTALL/etc/ld.so.cache"
+
+mkdir -p "$INSTALL/usr/lib/locale"
+printf "en_US.UTF-8 UTF-8\n" > "$INSTALL/etc/locale.gen"
+
+cd ..
+
+cp \
+    posix/gai.conf \
+    nss/nsswitch.conf \
+    "$INSTALL/etc/"
+
+for script in ldd locale-gen sotruss; do
+    cp -f "sh-alternatives/$script" "$INSTALL/usr/bin/$script"
+    chmod +x "$INSTALL/usr/bin/$script"
+done
+}

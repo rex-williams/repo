@@ -1,0 +1,14 @@
+name='gawk'
+desc='GNU version of awk'
+version='5.3.1'
+depends=''
+sources="https://ftp.gnu.org/gnu/gawk/gawk-${version}.tar.xz"
+build() {
+export CFLAGS="$CFLAGS -static"
+
+./configure \
+    --prefix=/usr
+
+make
+make DESTDIR="$INSTALL" install
+}

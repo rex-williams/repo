@@ -1,6 +1,7 @@
 name='m4'
 desc='The GNU macro processor'
 version='1.4.20'
+depends=''
 sources="https://ftp.gnu.org/gnu/m4/m4-${version}.tar.xz"
 build() {
 export LDFLAGS="$LDFLAGS -static"

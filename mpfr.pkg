@@ -1,8 +1,8 @@
 name='mpfr'
 desc='Multiple-precision floating-point library'
 version='4.2.2'
+depends=''
 sources="https://www.mpfr.org/mpfr-${version}/mpfr-${version}.tar.xz"
-depends='gmp'
 build() {
 ./configure \
     --prefix=/usr \

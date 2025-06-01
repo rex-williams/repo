@@ -1,8 +1,8 @@
 name='flex'
 desc='A tool for generating text-scanning programs'
 version='2.6.4'
+depends=''
 sources="https://github.com/westes/flex/releases/download/v${version}/flex-${version}.tar.gz"
-depends='m4 make'
 build() {
 ./configure \
     --prefix=/usr \

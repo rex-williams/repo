@@ -1,7 +1,7 @@
 name='binutils'
 desc='A set of programs to assemble and manipulate binary and object files'
-version='2.44'
-depends='flex zlib'
+version='2.43.1'
+depends=''
 sources="https://ftp.gnu.org/gnu/binutils/binutils-${version}.tar.xz"
 build() {
 cat > makeinfo <<EOF
@@ -15,9 +15,9 @@ export PATH="$PATH:$PWD"
 ./configure \
     --prefix=/usr \
     --with-lib-path=/usr/lib:/usr/local/lib \
-    --enable-targets=x86_64-pep \
+    --enable-targets=x86_64-linux-gnu \
     --enable-deterministic-archives \
-    --enable-gold \
+    --disable-gold \
     --enable-lto \
     --enable-ld=default \
     --enable-plugins \
@@ -29,8 +29,7 @@ export PATH="$PATH:$PWD"
     --disable-gprof \
     --disable-gprofng \
     --with-mmap \
-    --with-system-zlib \
-    --without-zstd
+    --with-system-zlib
 
 make configure-host
 make tooldir=/usr

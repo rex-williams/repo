@@ -1,0 +1,12 @@
+name='dash'
+desc='POSIX compliant shell that aims to be as small as possible'
+version='0.5.12-1'
+depends='libedit'
+sources="http://gondor.apana.org.au/~herbert/dash/files/dash-$version.tar.gz"
+build() {
+./configure --bindir=/bin \
+            --mandir=/usr/share/man
+make
+make DESTDIR="$INSTALL" install
+ln -sfv dash "$INSTALL/bin/sh"
+}

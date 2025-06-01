@@ -1,5 +1,5 @@
 name='libpsl'
-version='0.21.5'
+version='0.21.5-2'
 depends='icu python make'
 sources="https://github.com/rockdaboot/libpsl/releases/download/$version/libpsl-$version.tar.gz"
 build() {

@@ -1,0 +1,12 @@
+name='wget'
+desc='Network utility to retrieve files from the web'
+version='1.25.0'
+depends='libpsl make-ca'
+sources="https://ftp.gnu.org/gnu/wget/wget-$version.tar.gz"
+build () {
+./configure --prefix=/usr      \
+            --sysconfdir=/etc  \
+            --with-ssl=openssl
+make
+make install
+}

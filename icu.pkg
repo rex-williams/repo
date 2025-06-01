@@ -1,6 +1,6 @@
 name='icu'
-version='74.2'
-sources="https://github.com/unicode-org/icu/archive/refs/tags/release-${version}.tar.gz"
+version='76.1'
+sources="https://github.com/rockdaboot/libpsl/releases/download/$version/libpsl-$version.tar.gz"
 build() {
 # Change the order for checking installed compilers as
 # the ccache clang symlink might exist, but clang might not be installed.

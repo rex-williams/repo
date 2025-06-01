@@ -1,0 +1,11 @@
+name='libpsl'
+version='0.21.5'
+sources="https://github.com/rockdaboot/libpsl/releases/download/${version}/libpsl-${version}.tar.gz"
+depends='icu python make'
+build() {
+./configure \
+    --prefix=/usr
+
+make
+make DESTDIR="$INSTALL" install
+}

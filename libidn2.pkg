@@ -1,0 +1,10 @@
+name='libidn2'
+desc='Free software implementation of IDNA2008, Punycode and TR46'
+version='2.3.7'
+depends='libunistring'
+sources="https://ftp.gnu.org/gnu/libidn/libidn2-$version.tar.gz"
+build() {
+./configure --prefix=/usr
+make
+make DESTDIR="$INSTALL" install
+}

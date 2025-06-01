@@ -1,4 +1,5 @@
 name='icu'
+desc='International Components for Unicode library'
 version='76.1'
 sources="https://github.com/rockdaboot/libpsl/releases/download/$version/libpsl-$version.tar.gz"
 build() {

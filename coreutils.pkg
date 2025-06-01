@@ -1,7 +1,7 @@
 name='coreutils'
 desc='The basic file, shell and text manipulation utilities of the GNU operating system'
 version='9.5'
-depends=''
+depends='acl attr gmp libcap openssl'
 sources="https://ftp.gnu.org/gnu/coreutils/coreutils-${version}.tar.xz"
 build() {
 export CFLAGS="$CFLAGS -static"

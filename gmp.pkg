@@ -1,7 +1,7 @@
 name='gmp'
 desc='A free library for arbitrary precision arithmetic'
 version='6.3.0'
-depends=''
+depends='m4 make'
 sources="https://gmplib.org/download/gmp/gmp-${version}.tar.xz"
 build() {
 export CFLAGS="$CFLAGS -std=c17"

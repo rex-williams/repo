@@ -1,7 +1,7 @@
 name='bison'
 desc='The GNU general-purpose parser generator'
 version='3.8.2'
-depends=''
+depends='m4'
 sources="https://ftp.gnu.org/gnu/bison/bison-${version}.tar.xz"
 build() {
 ./configure \

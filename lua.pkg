@@ -1,7 +1,6 @@
 name='lua'
 desc='Powerful lightweight programming language designed for extending applications'
 version='5.4.7'
-depends=''
 sources="https://www.lua.org/ftp/lua-${version}.tar.gz"
 build() {
 sed "s/install -p/install/" Makefile > _

@@ -1,7 +1,7 @@
 name='binutils'
 desc='A set of programs to assemble and manipulate binary and object files'
 version='2.43.1'
-depends=''
+depends='flex zlib'
 sources="https://ftp.gnu.org/gnu/binutils/binutils-${version}.tar.xz"
 build() {
 cat > makeinfo <<EOF

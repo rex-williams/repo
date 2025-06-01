@@ -1,7 +1,7 @@
 name='gcc'
 version='14.2.0'
 desc='The GNU Compiler Collection - C and C++ frontends'
-depends=''
+depends='binutils bison flex make gmp libmpc mpfr zlib'
 sources="https://gcc.gnu.org/pub/gcc/releases/gcc-${version}/gcc-${version}.tar.xz"
 build() {
 # Use lib not lib64 by default.
@@ -61,5 +61,8 @@ find "$INSTALL" -name libgjsmalsa.a -exec rm -f {} +
 find "$INSTALL" -name libgij.a      -exec rm -f {} +
 
 ln -sf gcc "$INSTALL/usr/bin/cc"
-cp -f ../c99 "$INSTALL/usr/bin"
+cat > "$INSTALL/usr/bin/c99" << EOF
+#!/bin/sh
+exec cc -std=c99 "$@"
+EOF
 }

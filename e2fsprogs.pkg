@@ -1,7 +1,6 @@
 name='e2fsprogs'
 desc='Ext2/3/4 filesystem utilities'
 version='1.47.2'
-depends=''
 sources="https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v${version}/e2fsprogs-${version}.tar.xz"
 build() {
 export LDFLAGS="$LDFLAGS -static"

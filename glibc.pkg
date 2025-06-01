@@ -1,7 +1,7 @@
 name='glibc'
 desc='GNU C Library'
 version='2.40'
-depends=''
+depends='make gawk libxcrypt linux-headers pigz python'
 sources="https://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz"
 build() {
 # Build cannot happen without optimizations.

@@ -4,9 +4,8 @@ version='1.16'
 depends='p11-kit'
 sources="https://github.com/lfs-book/make-ca/archive/v$version/make-ca-$version.tar.gz"
 build() {
-make install
+make DESTDIR="$INSTALL" install
 install -vdm755 /etc/ssl/local
-/usr/sbin/make-ca -g
 cat > /etc/cron.weekly/update-pki.sh << "EOF" &&
 #!/bin/bash
 /usr/sbin/make-ca -g

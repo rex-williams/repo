@@ -1,7 +1,7 @@
 name='gcc'
 version='15.1.1'
 desc='The GNU Compiler Collection - C and C++ frontends'
-depends='binutils bison flex make gmp libmpc mpfr zlib'
+depends='binutils bison flex make gmp mpc mpfr zlib'
 sources="https://gcc.gnu.org/pub/gcc/releases/gcc-${version}/gcc-${version}.tar.xz"
 build() {
 # Use lib not lib64 by default.

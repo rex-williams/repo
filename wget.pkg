@@ -8,5 +8,5 @@ build () {
             --sysconfdir=/etc  \
             --with-ssl=openssl
 make
-make install
+make DESTDIR="$INSTALL" install
 }

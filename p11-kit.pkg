@@ -12,15 +12,18 @@ cat >> trust/trust-extract-compat << "EOF"
 # Update trust stores
 /usr/sbin/make-ca -r
 EOF
-mkdir p11-build &&
-cd    p11-build &&
 
-meson setup ..            \
-      --prefix=/usr       \
+mkdir build &&
+cd    build &&
+
+meson setup .. \
+      --prefix=/usr \
       --buildtype=release \
-      -D trust_paths=/etc/pki/anchors &&
+      --destdir="$INSTALL" \
+      -D trust_paths=/etc/pki/anchors
+
 ninja
-ninja -C "$INSTALL" install &&
-ln -sfv /usr/libexec/p11-kit/trust-extract-compat \
-        /usr/bin/update-ca-certificates
+ninja install &&
+ln -sfv "$INSTALL"/usr/libexec/p11-kit/trust-extract-compat \
+        "$INSTALL"/usr/bin/update-ca-certificates
 }

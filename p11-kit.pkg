@@ -19,7 +19,6 @@ cd    p11-build &&
 meson setup .. \
       --prefix=/usr \
       --buildtype=release \
-      --destdir="$INSTALL" \
       -D trust_paths=/etc/pki/anchors
 
 meson install --destdir "$INSTALL"

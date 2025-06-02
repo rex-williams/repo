@@ -1,1 +1,12 @@
 name='which'
+desc='A utility to show the full path of commands'
+version'NULL'
+depends='coreutils'
+build() {
+cat > "$INSTALL"/usr/bin/which << "EOF"
+#!/bin/bash
+type -pa "$@" | head -n 1 ; exit ${PIPESTATUS[0]}
+EOF
+chmod -v 755 "$INSTALL"/usr/bin/which
+chown -v root:root "$INSTALL"/usr/bin/which
+}

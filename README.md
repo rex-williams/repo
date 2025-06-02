@@ -11,4 +11,4 @@ or in more general terms
 
 `category/package`
 
-in the "package" directory there is
+in the **package** directory there is

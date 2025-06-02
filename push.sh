@@ -6,6 +6,6 @@
 } &
 {
 doas rm -rf /mnt/var/db/pkg/repo/*
-doas cp -rfv ./* /mnt/var/db/pkg/repo
+doas cp -rf ./* /mnt/var/db/pkg/repo
 } &
 wait

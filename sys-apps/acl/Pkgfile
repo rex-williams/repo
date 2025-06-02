@@ -4,8 +4,8 @@ version='2.3.2'
 depends='attr'
 sources="https://download.savannah.gnu.org/releases/acl/acl-$version.tar.xz"
 build() {
-./configure --prefix=/usr         \
+./configure --prefix=/usr \
             --docdir=/usr/share/doc/acl-"$version"
 make
-make install
+make DESTDIR="$INSTALL" install
 }

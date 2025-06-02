@@ -1,6 +1,6 @@
 name='unzip'
 version='6.0'
-sources="https://versaweb.dl.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%20${version}/unzip$(echo "$version" | sed 's/.//g').tar.gz"
+sources="https://versaweb.dl.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%20${version}/unzip60.tar.gz"
 depends='bzip2 '
 build() {
 while read -r p; do

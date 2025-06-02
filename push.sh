@@ -4,5 +4,8 @@
     git commit -m "$(clock)"
     git push
 } &
-doas cp -fv ./* /mnt/var/db/pkg/repo &
+{
+doas rm -rf /mnt/var/db/pkg/repo/*
+doas cp -rfv ./* /mnt/var/db/pkg/repo
+} &
 wait

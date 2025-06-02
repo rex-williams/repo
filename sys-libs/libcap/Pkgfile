@@ -1,0 +1,10 @@
+name='libcap'
+desc='POSIX 1003.1e capabilities'
+version='2.73'
+depends='pam'
+sources="https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-$version.tar.xz"
+build() {
+sed -i '/install -m.*STA/d' libcap/Makefile
+make prefix=/usr lib=lib
+make prefix=/usr lib=lib DESTDIR="$INSTALL" install
+}

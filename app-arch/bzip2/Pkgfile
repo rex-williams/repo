@@ -1,4 +1,5 @@
 name='bzip2'
+desc='A high-quality data compression program'
 version='1.0.8'
 sources="https://sourceware.org/pub/bzip2/bzip2-${version}.tar.gz"
 build() {

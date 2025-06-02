@@ -10,3 +10,5 @@ The package name is a directory in a catergory directory such as
 or in more general terms
 
 `category/package`
+
+in the "package" directory there is

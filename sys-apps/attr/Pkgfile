@@ -7,5 +7,5 @@ build() {
             --sysconfdir=/etc \
             --docdir=/usr/share/doc/attr-"$version"
 make
-make install
+make DESTDIR="$INSTALL" install
 }

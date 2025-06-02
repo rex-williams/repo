@@ -1,9 +1,8 @@
 name='unzip'
 version='6.0'
 sources="https://versaweb.dl.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%20${version}/unzip60.tar.gz"
-depends='bzip2 '
+depends='bzip2'
 build() {
-find
 while read -r p; do
     patch -p1 < "$p"
 done < series

@@ -5,7 +5,6 @@
     git push
 } &
 {
-doas rm -rf /mnt/var/db/pkg/repo/*
 doas cp -rfvu ./* /mnt/var/db/pkg/repo
 } &
 wait

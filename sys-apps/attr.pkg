@@ -1,0 +1,11 @@
+name='attr'
+desc='Extended attribute support library for ACL support'
+version='$version'
+sources='https://download.savannah.gnu.org/releases/attr/attr-$version.tar.gz'
+build() {
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --docdir=/usr/share/doc/attr-"$version"
+make
+make install
+}

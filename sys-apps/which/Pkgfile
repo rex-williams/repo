@@ -1,6 +1,6 @@
 name='which'
 desc='A utility to show the full path of commands'
-version'NULL'
+version='NULL'
 depends='coreutils'
 build() {
 cat > "$INSTALL"/usr/bin/which << "EOF"

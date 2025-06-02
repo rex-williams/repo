@@ -3,13 +3,7 @@ desc='The basic file, shell and text manipulation utilities of the GNU operating
 version='9.5'
 depends='acl attr gmp libcap openssl'
 sources="https://ftp.gnu.org/gnu/coreutils/coreutils-${version}.tar.xz"
+files='coreutils-$version-i18n-1.patch'
 build() {
-export CFLAGS="$CFLAGS -static"
-
-./configure \
-    --prefix=/usr
-
-make
-make check || exit 1
-make DESTDIR="$INSTALL" install
+patch -Np1 -i coreutils-$version-i18n-1.patch
 }

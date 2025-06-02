@@ -6,4 +6,14 @@ sources="https://ftp.gnu.org/gnu/coreutils/coreutils-${version}.tar.xz"
 files='coreutils-$version-i18n-1.patch'
 build() {
 patch -Np1 -i coreutils-$version-i18n-1.patch
+autoreconf -fv
+automake -af
+FORCE_UNSAFE_CONFIGURE=1 \
+./configure --prefix=/usr \
+            --enable-no-install-program=kill,uptime
+make
+make DESTDIR="$INSTALL" install
+mv -v "$INSTALL"/usr/bin/chroot "$INSTALL"/usr/sbin
+mv -v "$INSTALL"/usr/share/man/man1/chroot.1 "$INSTALL"/usr/share/man/man8/chroot.8
+sed -i 's/"1"/"8"/' "$INSTALL"/usr/share/man/man8/chroot.8
 }

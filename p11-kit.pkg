@@ -22,8 +22,8 @@ meson setup .. \
       --destdir="$INSTALL" \
       -D trust_paths=/etc/pki/anchors
 
-ninja
-ninja install &&
+meson install --destdir "$INSTALL"
+
 ln -sfv "$INSTALL"/usr/libexec/p11-kit/trust-extract-compat \
         "$INSTALL"/usr/bin/update-ca-certificates
 }

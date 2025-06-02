@@ -1,0 +1,7 @@
+name='pkg'
+desc='stupid and simple-(minded) package manager'
+version='git'
+sources='https://github.com/rex-williams/pkg/archive/refs/heads/master.zip'
+build() {
+make DESTDIR="$INSTALL" install
+}

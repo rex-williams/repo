@@ -13,7 +13,9 @@ FORCE_UNSAFE_CONFIGURE=1 \
             --enable-no-install-program=kill,uptime
 make
 make DESTDIR="$INSTALL" install
-mv -v "$INSTALL"/usr/bin/chroot "$INSTALL"/usr/sbin
+mkdir -pv "$INSTALL"/usr/sbin
+mv -v "$INSTALL"/usr/bin/chroot "$INSTALL"/usr/sbin/chroot
+mkdir -pv "$INSTALL"/usr/share/man/man8
 mv -v "$INSTALL"/usr/share/man/man1/chroot.1 "$INSTALL"/usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/' "$INSTALL"/usr/share/man/man8/chroot.8
 }

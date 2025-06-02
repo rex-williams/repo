@@ -2,6 +2,7 @@ name='which'
 desc='A utility to show the full path of commands'
 version='NULL'
 depends='coreutils'
+sources=''
 build() {
 cat > "$INSTALL"/usr/bin/which << "EOF"
 #!/bin/bash

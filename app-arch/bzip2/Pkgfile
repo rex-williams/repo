@@ -2,8 +2,8 @@ name='bzip2'
 version='1.0.8'
 sources="https://sourceware.org/pub/bzip2/bzip2-${version}.tar.gz"
 build() {
-make CC="$CC $CFLAGS -fPIC $LDFLAGS" -f Makefile-libbz2_so
-make CC="$CC $CFLAGS -static -fPIC $LDFLAGS" bzip2
+make Makefile-libbz2_so
+make bzip2
 
 mkdir -p \
     "$INSTALL/usr/bin" \
